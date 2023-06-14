@@ -58,19 +58,16 @@ function capture (success, errorCallback, opts) {
     targetHeight = targetHeight === -1 ? 240 : targetHeight;
 
     var video = document.createElement('video');
-    var button = document.createElement('button');
     var parent = document.createElement('div');
     parent.style.position = 'relative';
     parent.style.zIndex = HIGHEST_POSSIBLE_Z_INDEX;
     parent.className = 'cordova-camera-capture';
     parent.appendChild(video);
-    parent.appendChild(button);
 
     video.width = targetWidth;
     video.height = targetHeight;
-    button.innerHTML = 'Capture!';
 
-    button.onclick = function () {
+    video.onclick = function () {
         // create a canvas and capture a frame from video stream
         var canvas = document.createElement('canvas');
         canvas.width = targetWidth;
